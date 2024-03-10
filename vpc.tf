@@ -15,14 +15,12 @@ resource "aws_security_group_rule" "egress" {
 }
 
 resource "aws_security_group_rule" "ingress" {
-  for_each = { for index, item in var.security_group_inbound : index => item }
-
   security_group_id = aws_security_group.sg.id
   type              = "ingress"
-  cidr_blocks       = each.value.cidr_blocks
-  from_port         = each.value.from_port
-  to_port           = each.value.to_port
-  protocol          = each.value.protocol
+  cidr_blocks       = [data.aws_vpc.vpc.cidr_block]
+  from_port         = 0
+  to_port           = 0
+  protocol          = "-1"
 }
 
 resource "aws_network_interface" "eni" {
