@@ -1,0 +1,23 @@
+schemaVersion: '0.3'
+parameters:
+  InstanceId:
+    type: String
+    description: Ec2 instance id
+  ENI:
+    type: String
+    description: ENI id
+  Role:
+    type: String
+    description: SSM automation role
+assumeRole: '{{ Role }}'
+description: Attach ENI to target Ec2 instance
+mainSteps:
+  - name: AttachNetworkInterface
+    action: aws:executeAwsApi
+    isEnd: true
+    inputs:
+      Service: ec2
+      Api: AttachNetworkInterface
+      DeviceIndex: 1
+      InstanceId: '{{ InstanceId }}'
+      NetworkInterfaceId: '{{ ENI }}'
