@@ -50,13 +50,13 @@ jobs:
             -backend-config="region=ap-southeast-2"
 
       - name: Terraform Plan
-        if: inputs.action == apply
+        if: inputs.action == "apply"
         run: terraform plan -input=false -out=tfplan
 
       - name: Terraform Apply
-        if: inputs.action == apply
+        if: inputs.action == "apply"
         run: terraform apply -auto-approve -input=false tfplan
 
       - name: Terraform Destroy
-        if: inputs.action == destroy
+        if: inputs.action == "destroy"
         run: terraform destroy -auto-approve -input=false
