@@ -46,7 +46,7 @@ jobs:
           EOF
           terraform init \
             -backend-config="bucket=terragrunt-terraform" \
-            -backend-config="key=lab/${{ inputs.stack }}/terraform.tfstate" \
+            -backend-config="key=lab/aws-vpc-nat-instance/terraform.tfstate" \
             -backend-config="region=ap-southeast-2"
 
       - name: Terraform Plan
