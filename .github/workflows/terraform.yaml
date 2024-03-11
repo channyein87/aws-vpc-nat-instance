@@ -32,9 +32,10 @@ jobs:
       - name: Terraform Vars
         run: |
           cat <<EOF >>terraform.tfvars
-          vpc_id           = "vpc-86785de1"
-          public_subnet_id = "subnet-9a5e53fd"
-          route_table_ids  = ["rtb-0ae427e9c1c1fdddb","rtb-08820989a3e4b8b56","rtb-0c42dc2eb01c64062"]
+          vpc_id                       = "vpc-86785de1"
+          public_subnet_id             = "subnet-9a5e53fd"
+          route_table_ids              = ["rtb-0ae427e9c1c1fdddb", "rtb-08820989a3e4b8b56", "rtb-0c42dc2eb01c64062"]
+          security_group_inbound_cidrs = ["172.32.0.0/16", "172.33.0.0/16"]
           EOF
 
       - name: Terraform Init

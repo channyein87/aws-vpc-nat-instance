@@ -17,7 +17,7 @@ resource "aws_security_group_rule" "egress" {
 resource "aws_security_group_rule" "ingress" {
   security_group_id = aws_security_group.sg.id
   type              = "ingress"
-  cidr_blocks       = [data.aws_vpc.vpc.cidr_block]
+  cidr_blocks       = compact([data.aws_vpc.vpc.cidr_block], var.security_group_inbound_cidrs)
   from_port         = 0
   to_port           = 0
   protocol          = "-1"

@@ -31,6 +31,12 @@ variable "route_table_ids" {
   type        = any
 }
 
+variable "security_group_inbound_cidrs" {
+  description = "Addtional inbound CIDR ranges to NAT instance."
+  type        = list(string)
+  default     = []
+}
+
 variable "ebs" {
   description = "Specify EBS volume custom properties to attach to the instance."
   type = object({
