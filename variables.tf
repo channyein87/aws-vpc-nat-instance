@@ -77,5 +77,5 @@ variable "instance_type" {
 variable "spot" {
   description = "Whether to use spot or on-demand instance."
   type        = bool
-  default     = true
+  default     = false
 }
