@@ -71,7 +71,7 @@ variable "iam_instance_profile" {
 variable "instance_type" {
   description = "Instance type to launch."
   type        = string
-  default     = "t2.micro"
+  default     = "t3.micro"
 }
 
 variable "spot" {
