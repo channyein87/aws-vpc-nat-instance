@@ -10,6 +10,16 @@ data "aws_ami" "ami" {
     name   = "name"
     values = ["amzn-ami-vpc-nat-*"]
   }
+
+  filter {
+    name   = "is-public"
+    values = ["true"]
+  }
+
+  filter {
+    name   = "owner-id"
+    values = ["108494951140"]
+  }
 }
 
 data "aws_vpc" "vpc" {
